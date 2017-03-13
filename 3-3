@@ -1,0 +1,26 @@
+float Analogin = 0;
+void setup() {
+  //ResisterValue =1008401.7;
+  Serial.begin(9600);
+  pinMode(A1,INPUT);
+
+}
+
+void loop() //1.01
+{
+   float Vin,sensorValue,sensorVoltage,R1;
+  int i;
+   for (i=0;i<=4;i++){
+      sensorValue = 0.5* sensorValue + 0.5* analogRead(A1);
+  
+    sensorVoltage = sensorValue * 5 / 1024;
+   R1 = sensorVoltage * 1008000/ 5;
+  
+   Serial.println(sensorValue);
+    Serial.println(sensorVoltage);
+    Serial.println(R1);
+   delay(500);
+  
+  
+  }
+}
